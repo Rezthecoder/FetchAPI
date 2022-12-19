@@ -1,5 +1,6 @@
 const getapi=async ()=>{
-const data =await fetch('https://api.covid19api.com/summary');
+    try {
+        const data =await fetch('https://api.covid19api.com/summary');
 // console.log(data);
 const res=await data.json();
 console.log(res.Countries);
@@ -14,6 +15,11 @@ datas.innerHTML=`<h1>Country: ${countryName.Country}</h1>
 <h1>New Recovered: ${countryName.NewRecovered}</h1>
 <h1>Date: ${countryName.Date}</h1>
 `
+    } catch (error) {
+        console.log(error);
+        
+    }
+
 }
 
 getapi();
